@@ -30,6 +30,7 @@ SELECT d.dept_name
 FROM departments as d;
 
 SELECT dm.dept_no AS "Department Number",
+	   d.dept_name AS "Department Name",
 	   e.emp_no AS "Employee Number",
 	   e.last_name AS "Last Name",
 	   e.first_name AS "First Name"
@@ -38,11 +39,59 @@ INNER JOIN dept_manager as dm
 ON e.emp_no = dm.emp_no
 INNER JOIN departments as d
 ON dm.dept_no = d.dept_no
-WHERE d.dept_name IN (SELECT d.dept_name 
+WHERE d.dept_name IN (
+					  SELECT d.dept_name 
 					  FROM departments AS d
 					 );
 					 
--- Q4
+-- Q4 List the department number for each employee along with that employee’s employee number, last name, first name, and department name
+
+SELECT de.dept_no AS "Department Number",
+	   e.emp_no AS "Employee Number",
+	   e.last_name AS "Last Name",
+	   e.first_name AS "First Name",
+	   d.dept_name AS "Department Name"
+FROM employees as e
+INNER JOIN dept_emp as de
+ON e.emp_no = de.emp_no
+INNER JOIN departments as d
+ON de.dept_no = d.dept_no;
+
+-- Q5 List first name, last name, and sex of each employee whose first name is Hercules and whose last name begins with the letter B 
+
+SELECT first_name AS "First Name",
+	   last_name AS "Last Name",
+	   sex As "Sex"
+FROM employees
+WHERE first_name = 'Hercules'
+	AND last_name like 'B%';
+
+-- Q6 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
