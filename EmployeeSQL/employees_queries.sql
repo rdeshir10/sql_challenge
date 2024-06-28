@@ -14,7 +14,7 @@ SELECT e.emp_no AS "Employee Number",
 	   s.salary
 FROM employees AS e
 INNER JOIN salaries AS s
-ON e.emp_no = s.emp_no
+ON e.emp_no = s.emp_no;
 
 -- Q2 List the first name, last name, and hire date for the employees who were hired in 1986
 
@@ -35,9 +35,6 @@ Where hire_date like '%1986';
 
 -- Q3 List the manager of each department along with their department number, department name, employee number, last name, and first name 
 
-SELECT d.dept_name 
-FROM departments as d;
-
 SELECT dm.dept_no AS "Department Number",
 	   d.dept_name AS "Department Name",
 	   e.emp_no AS "Employee Number",
@@ -47,12 +44,8 @@ FROM employees AS e
 INNER JOIN dept_manager AS dm 
 ON e.emp_no = dm.emp_no
 INNER JOIN departments AS d
-ON dm.dept_no = d.dept_no
-WHERE d.dept_name IN (
-					  SELECT d.dept_name 
-					  FROM departments AS d
-					 );
-					 
+ON dm.dept_no = d.dept_no;
+
 -- Q4 List the department number for each employee along with that employee’s employee number, last name, first name, and department name
 
 SELECT de.dept_no AS "Department Number",
@@ -101,8 +94,13 @@ ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales'
 	OR d.dept_name = 'Development';
 
+-- Q8 List the frequency counts, in descending order, of all the employee last names (that is, how many employees share each last name
 
-
+SELECT last_name as "Last name",
+	   COUNT(last_name)
+FROM employees
+GROUP BY last_name
+ORDER BY COUNT(last_name) DESC;
 
 
 
