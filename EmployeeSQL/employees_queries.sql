@@ -18,6 +18,15 @@ ON e.emp_no = s.emp_no
 
 -- Q2 List the first name, last name, and hire date for the employees who were hired in 1986
 
+-- USing to_Date function 
+SELECT first_name AS "First Name",
+	   last_name AS "Last Name",
+	   TO_DATE(hire_date, 'MM/DD/YYYY') as "Hire Date"
+FROM employees
+WHERE EXTRACT(YEAR FROM TO_DATE(hire_date, 'MM/DD/YYYY')) = 1986 
+ORDER BY hire_date;
+
+-- As VARCHAR
 SELECT first_name AS "First Name",
 	   last_name AS "Last Name",
 	   hire_date AS "Hire Date"
