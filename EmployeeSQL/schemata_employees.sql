@@ -5,6 +5,10 @@ DROP TABLE IF EXISTS dept_manager;
 DROP TABLE IF EXISTS salaries;
 DROP TABLE IF EXISTS titles;
 
+CREATE TABLE titles (
+title_id VARCHAR(10) PRIMARY KEY,
+title VARCHAR(30)
+);
 
 CREATE TABLE employees (
 emp_no INT NOT NULL PRIMARY KEY,
@@ -47,8 +51,5 @@ FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
 
-CREATE TABLE titles (
-title_id VARCHAR(10) PRIMARY KEY,
-title VARCHAR(30)
-);
+
 
