@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS salaries;
 DROP TABLE IF EXISTS dept_emp;
 DROP TABLE IF EXISTS dept_manager;
-DROP TABLE IF EXISTS salaries;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS titles;
 
 CREATE TABLE titles (
@@ -12,12 +12,12 @@ title VARCHAR(30)
 
 CREATE TABLE employees (
 emp_no INT NOT NULL PRIMARY KEY,
-emp_title_id VARCHAR(10),
-birth_date VARCHAR(15),
-first_name VARCHAR(30),
-last_name VARCHAR(30),
-sex VARCHAR(10),
-hire_date VARCHAR(15),
+emp_title_id VARCHAR(10)NOT NULL,
+birth_date VARCHAR(15)NOT NULL,
+first_name VARCHAR(30)NOT NULL,
+last_name VARCHAR(30)NOT NULL,
+sex VARCHAR(10)NOT NULL,
+hire_date VARCHAR(15)NOT NULL,
 FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
 );
 
